@@ -42,10 +42,26 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) { }
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer
+        .prompt(questions)
+        .then((answers) => {
+            const readmeContent = generateMarkdown(JSON.stringify(answers));
+            writeToFile('README.md', readmeContent);
+            console.log('Project Title: ', JSON.stringify(answers.projectTitle));
+            console.log('Description: ', JSON.stringify(answers.description));
+            console.log('Installation: ', JSON.stringify(answers.installation));
+            console.log('Usage Information: ', JSON.stringify(answers.usageInfo));
+            console.log('Contributions: ', JSON.stringify(answers.contributions));
+            console.log('Test Instructions: ', JSON.stringify(answers.test));
+        })
+        .catch((error) => {
+            console.error('Error occured while prompting questions:', error);
+        });
+}
 
 // Function call to initialize app
 init();
