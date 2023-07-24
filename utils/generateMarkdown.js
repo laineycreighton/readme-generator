@@ -18,17 +18,14 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   if (license) {
-
     const licenseLinks = {
       MIT: 'https://opensource.org/licenses/MIT',
       'Apache 2.0': 'https://www.apache.org/licenses/LICENSE-2.0',
     };
 
     if (licenseLinks.hasOwnProperty(license)) {
-
       return `[License](${licenseLinks[license]})`;
     } else {
-
       console.warn(`License link for '${license}' not found.`);
     }
   }
@@ -38,13 +35,12 @@ function renderLicenseLink(license) {
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  if (license) {
+  if (license && license !== 'None') {
     const badge = renderLicenseBadge(license);
     const link = renderLicenseLink(license);
 
     if (badge && link) {
       return `
-        ## License
         ${badge}
         Licensed under the ${link}.
       `;
@@ -56,39 +52,39 @@ function renderLicenseSection(license) {
 }
 
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
+function generateMarkdown(answers) {
+  return `# ${answers.projectTitle}
 
 ## Description
-${data.description}
+${answers.description}
 
 ## Table of Contents
 * [Installation](#installation)
-* [Usage] (#usage)
+* [Usage](#usage)
 * [License] (#license)
-* [Contributions] (#contributions)
-* [Tests] (#tests)
-* [Questions] (#questions)
+* [Contributions](#contributions)
+* [Tests](#tests)
+* [Questions](#questions)
 
-## Installation {#installation}
-${data.installation}
+## Installation
+${answers.installation}
 
-## Usage {#usage}
-${data.usageInfo}
+## Usage
+${answers.usageInfo}
 
-## License {#license}
-${renderLicenseSection(data.license)}
+## License
+${renderLicenseSection()}
 
-## Contributions {#contributions}
-${data.contributions}
+## Contributions
+${answers.contributions}
 
-## Tests {#tests}
-${data.test}
+## Tests
+${answers.test}
 
-## Questions {#questions}
+## Questions
 If you have any questions or need further assistance, feel free to contact me:
-- GitHub [${data.github}](https://github.com/${data.github})
-- Email [${data.email}]
+- GitHub [${answers.github}](https://github.com/${answers.github})
+- Email [${answers.email}]
 `;
 }
 

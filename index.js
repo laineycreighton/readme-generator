@@ -1,7 +1,8 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateMarkdown = require('./utils/generateMarkdown')
+const generateMarkdown = require('./utils/generateMarkdown.js');
+
 // TODO: Create an array of questions for user input
 const questions = [
     {
@@ -29,6 +30,13 @@ const questions = [
         default: 'N/A'
     },
     {
+        type: 'list',
+        name: 'license',
+        message: 'Choose a license for your project:',
+        choices: ['MIT', 'Apache 2.0', 'None'],
+        default: 'None'
+    },    
+    {
         type: 'input',
         name: 'contributions',
         message: 'Enter the contributions for your project.',
@@ -55,36 +63,47 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    const content = generateMarkdown(data);
-
-    fs.writeFile(fileName, content, (err) => {
-        if (err) {
-            console.error('Error writing to file: ', err);
-        } else {
-            console.log('README.md successfully generated as ${fileName}')
-        }
+function writeToFile(fileName, answers) {
+    const content = generateMarkdown({
+      projectTitle: answers.projectTitle,
+      description: answers.description,
+      installation: answers.installation,
+      usageInfo: answers.usageInfo,
+      contributions: answers.contributions,
+      test: answers.test,
+      license: answers.license,
+      github: answers.github,
+      email: answers.email,
     });
- }
+  
+    fs.writeFile(fileName, content, (err) => {
+      if (err) {
+        console.error('Error writing to file: ', err);
+      } else {
+        console.log(`README.md successfully generated as ${fileName}`);
+      }
+    });
+  }
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer
-        .prompt(questions)
-        .then((answers) => {
-            const readmeContent = generateMarkdown(JSON.stringify(answers));
-            writeToFile('README.md', readmeContent);
-            console.log('Project Title: ', JSON.stringify(answers.projectTitle));
-            console.log('Description: ', JSON.stringify(answers.description));
-            console.log('Installation: ', JSON.stringify(answers.installation));
-            console.log('Usage Information: ', JSON.stringify(answers.usageInfo));
-            console.log('Contributions: ', JSON.stringify(answers.contributions));
-            console.log('Test Instructions: ', JSON.stringify(answers.test));
-        })
-        .catch((error) => {
-            console.error('Error occured while prompting questions:', error);
-        });
-}
+      .prompt(questions)
+      .then((answers) => {
+        console.log(answers);
+        writeToFile('README.md', answers);
+        console.log('Project Title: ', JSON.stringify(answers.projectTitle));
+        console.log('Description: ', JSON.stringify(answers.description));
+        console.log('Installation: ', JSON.stringify(answers.installation));
+        console.log('Usage Information: ', JSON.stringify(answers.usageInfo));
+        console.log('License: ', JSON.stringify(answers.license));
+        console.log('Contributions: ', JSON.stringify(answers.contributions));
+        console.log('Test Instructions: ', JSON.stringify(answers.test));
+      })
+      .catch((error) => {
+        console.error('Error occurred while prompting questions:', error);
+      });
+  }
 
 // Function call to initialize app
 init();
