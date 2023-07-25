@@ -1,4 +1,4 @@
-# lainey
+# Project Title
 
 ## Description
 N/A
@@ -6,7 +6,7 @@ N/A
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
-* [License] (#license)
+* [License](#license)
 * [Contributions](#contributions)
 * [Tests](#tests)
 * [Questions](#questions)
@@ -19,9 +19,6 @@ N/A
 
 ## License
 
-        ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-        Licensed under the [License](https://opensource.org/licenses/MIT).
-      
 
 ## Contributions
 N/A
@@ -31,5 +28,5 @@ N/A
 
 ## Questions
 If you have any questions or need further assistance, feel free to contact me:
-- GitHub [laineycreighton](https://github.com/laineycreighton)
-- Email [dev.lainey@gmail.com]
+- GitHub [N/A](https://github.com/N/A)
+- Email [N/A](N/A)

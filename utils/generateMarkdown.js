@@ -4,9 +4,9 @@ function renderLicenseBadge(license) {
   if (license) {
     switch (license) {
       case 'MIT':
-        return '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)';
+        return '![alt text](https://img.shields.io/badge/License-MIT-yellow.svg) <br>';
       case 'Apache 2.0':
-        return '![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)';
+        return '![alt text](https://img.shields.io/badge/License-Apache%202.0-blue.svg) <br>';
       default:
         console.warn(`License badge not found for '${license}'.`);
     }
@@ -41,9 +41,10 @@ function renderLicenseSection(license) {
 
     if (badge && link) {
       return `
-        ${badge}
-        Licensed under the ${link}.
-      `;
+## License
+${badge}
+Licensed under the ${license} ${link}.
+`;
     } else {
       console.warn(`License badge or link missing for '${license}'.`);
     }
@@ -61,7 +62,7 @@ ${answers.description}
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
-* [License] (#license)
+* [License](#license)
 * [Contributions](#contributions)
 * [Tests](#tests)
 * [Questions](#questions)
@@ -73,7 +74,7 @@ ${answers.installation}
 ${answers.usageInfo}
 
 ## License
-${renderLicenseSection()}
+${renderLicenseSection(answers.license)}
 
 ## Contributions
 ${answers.contributions}
@@ -84,7 +85,7 @@ ${answers.test}
 ## Questions
 If you have any questions or need further assistance, feel free to contact me:
 - GitHub [${answers.github}](https://github.com/${answers.github})
-- Email [${answers.email}]
+- Email [${answers.email}](${answers.email})
 `;
 }
 
