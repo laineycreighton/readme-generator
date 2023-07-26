@@ -1,7 +1,7 @@
-# Project Title
+# README.md Generator
 
 ## Description
-N/A
+This project was created to showcase the use of Node.js to generate a README.md from the terminal. This provides a time-saving convenience to a developer by giving them more time to work on the actual project instead of needing extra time on the README.md as well. The project taught me how to use Node.js, the writeToFile method, the require method, module.exports, the inquirer package, the fs package, and using arrow functions. Please use the video below as a tutorial on how to generate the file and content for this README.md file.Additionally, starter code was provided by the UC Berkeley Fullflex Coding Bootcamp. Additional code was written by the author.
 
 ## Table of Contents
 * [Installation](#installation)
@@ -12,21 +12,29 @@ N/A
 * [Questions](#questions)
 
 ## Installation
-N/A
+Use Node.js and npm i inquirer@8.2.4 to install this project.
 
 ## Usage
-N/A
+Please watch the tutorial below to generate a README.md: <br>
+
+<video width="700" controls>
+  <source src="./video/license.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ## License
+
+![alt text](https://img.shields.io/badge/License-MIT-yellow.svg) <br>
+Licensed under the MIT [License](https://opensource.org/licenses/MIT).
 
 
 ## Contributions
 N/A
 
 ## Tests
-N/A
+Use node index.js in the terminal.
 
 ## Questions
 If you have any questions or need further assistance, feel free to contact me:
-- GitHub [N/A](https://github.com/N/A)
-- Email [N/A](N/A)
+- GitHub [laineycreighton](https://github.com/laineycreighton)
+- Email [dev.lainey@gmail.com](dev.lainey@gmail.com)

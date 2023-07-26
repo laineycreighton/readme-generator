@@ -41,7 +41,6 @@ function renderLicenseSection(license) {
 
     if (badge && link) {
       return `
-## License
 ${badge}
 Licensed under the ${license} ${link}.
 `;
@@ -71,7 +70,12 @@ ${answers.description}
 ${answers.installation}
 
 ## Usage
-${answers.usageInfo}
+${answers.usageInfo} <br>
+
+<video width="700" controls>
+  <source src="./video/license.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ## License
 ${renderLicenseSection(answers.license)}
