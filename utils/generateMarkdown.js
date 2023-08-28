@@ -70,11 +70,10 @@ ${answers.description}
 ${answers.installation}
 
 ## Usage
-${answers.usageInfo} <br>
+${answers.usageInfo}
 
 <video width="700" controls>
-  <source src="./video/license.mp4" type="video/mp4">
-  Your browser does not support the video tag.
+  <source src="./video/readme-generator.mp4" type="video/mp4">
 </video>
 
 ## License
